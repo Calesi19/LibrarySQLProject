@@ -1,0 +1,42 @@
+﻿@using Website.Controllers
+
+@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+
+<button role="button" type="button" class="btn btn-success mb-3 btn-edit" data-url="@Url.Action(nameof(HomeController.GetBook))">
+    <i class="fa-solid fa-plus"></i>
+</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td></td>
+            <td>@Html.DisplayNameFor(book => new Book().title)</td>
+            <td>@Html.DisplayNameFor(book => new Book().publish_date)</td>
+            <td>@Html.DisplayNameFor(book => new Book().popularity)</td>
+            <td>@Html.DisplayNameFor(book => new Book().author_id)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <partial name="BookRow" model="book" />
+        }
+    </tbody>
+</table>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        window.initForm = function(modalContent){
+            modalContent.find('#title').focus();
+        }    
+    </script>
+}

@@ -3,7 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="4.0.0-rc2" />
+    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.4-beta" />
+    <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.4-beta" />
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+  </ItemGroup>
 
 </Project>

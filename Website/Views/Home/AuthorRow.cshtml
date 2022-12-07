@@ -1,0 +1,16 @@
+﻿@using Website.Controllers
+@model Author
+
+<tr data-id="@Model.author_id">
+    <td width="1" class="text-nowrap">
+        <button type="button" role="button" class="btn btn-primary btn-edit" data-id="@Model.author_id" data-url="@Url.Action(nameof(HomeController.GetAuthor), new{id = Model.author_id})">
+            <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button type="button" role="button" class="btn btn-outline-danger btn-delete" data-id="@Model.author_id" data-url="@Url.Action(nameof(HomeController.DeleteAuthor), new{id = Model.author_id})">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </td>
+    <td>@Model.first_name</td>
+    <td>@Model.last_name</td>
+    <td>@Model.book_count</td>
+</tr>
