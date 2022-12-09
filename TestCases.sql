@@ -19,10 +19,17 @@ HAVING Amount > 2;
 #A staff member will want to see which accounts in a specific library have books late in return.
 #(create new withdrawal/checkin table)
 
-SELECT account_id 'Account ID', accounts.last_name 'Last Name', 
-accounts.first_name 'First Name', bookCopy.item_id
-FROM withdrawals
-INNER JOIN accounts ON accounts.account_id = withdrawals.account_id
-INNER JOIN bookCopy ON bookCopy.book_id = withdrawals.book_id
+SELECT account.account_id 'Account ID', account.last_name 'Last Name', 
+account.first_name 'First Name', book_copy.item_id
+FROM book_copy
+INNER JOIN accounts ON accounts.account_id = book_copy.account_id
 WHERE DATEDIFF(CURDATE(), "2017-06-15") > 30 AND library_id = 3;
+
+#A client wants to see how many libraries are available in a zip code.
+
+SELECT library.name
+FROM library
+INNER JOIN address ON address.address_id = library.address_id
+WHERE address.zip_code = @zip_code;
+
 
