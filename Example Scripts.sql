@@ -213,8 +213,8 @@
     -- or WHERE copy.library_id = @library_id
     
 	-- Add new book copy
-    INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, availability, format_id, library_id)
-	VALUES (@ISBN, @book_id, @language_id, @condition_id, @availability, @format_id, @library_id);
+    INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, format_id, library_id)
+	VALUES (@ISBN, @book_id, @language_id, @condition_id, @format_id, @library_id);
     
     -- Rent/unrent a copy
     UPDATE book_copy SET account_id = @account_id, turn_over = now()
