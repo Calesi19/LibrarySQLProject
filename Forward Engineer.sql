@@ -539,3 +539,11 @@ INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, format_id, libra
     (1344682155223, 1, 2, 2, 1, 2),
     (8621485645586, 2, 3, 4, 1, 1),
     (1478566526632, 1, 1, 3, 1, 3);
+    
+    
+INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, format_id, library_id, account_id, turn_over) 
+VALUES
+(1325479465132, 1, 1, 1, 1, 1, 1, "2022-12-9"),
+(1344682155223, 1, 2, 2, 1, 2, 2, "2003-04-15"),
+(8621485645586, 2, 3, 4, 2, 1, 1, "2006-06-13"),
+(1478566526632, 1, 1, 3, 2, 3, 1, "2001-07-15");
