@@ -169,7 +169,6 @@ CREATE TABLE IF NOT EXISTS `library`.`book_copy` (
   `book_id` INT UNSIGNED NOT NULL,
   `language_id` INT UNSIGNED NOT NULL,
   `condition_id` INT UNSIGNED NOT NULL,
-  `availability` INT NOT NULL,
   `format_id` INT UNSIGNED NOT NULL,
   `library_id` INT UNSIGNED NOT NULL,
   `account_id` INT UNSIGNED NULL,
@@ -535,8 +534,8 @@ INSERT INTO book_author(book_id, author_id) VALUES
     (10, 4);
 
 # book_copy
-INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, availability, format_id, library_id) VALUES
-	(1325479465132, 1, 1, 1, 1, 1, 1),
-    (1344682155223, 1, 2, 2, 1, 1, 2),
-    (8621485645586, 2, 3, 4, 2, 1, 1),
-    (1478566526632, 1, 1, 3, 2, 1, 3);
+INSERT INTO book_copy(ISBN, book_id, language_id, condition_id, format_id, library_id) VALUES
+	(1325479465132, 1, 1, 1, 1, 1),
+    (1344682155223, 1, 2, 2, 1, 2),
+    (8621485645586, 2, 3, 4, 1, 1),
+    (1478566526632, 1, 1, 3, 1, 3);
