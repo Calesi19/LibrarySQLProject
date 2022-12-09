@@ -15,8 +15,8 @@ namespace Website.Models
         [Display(Name = "Publisher")]
         public uint publisher_id { get; set; }
 
-        [Display(Name = "Popularity")]
-        public int? popularity { get; set; }
+        [Display(Name = "Rating (0.0-5.0)")]
+        public decimal? rating { get; set; }
 
         [Display(Name = "publish_date")]
         public DateTime publish_date { get; set; }

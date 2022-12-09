@@ -66,7 +66,7 @@ namespace Website.Models.DB
                 var cmd = new MySqlCommand(Book.InsertQuery, conn);
                 cmd.Parameters.AddWithValue("@title", book.title);
                 cmd.Parameters.AddWithValue("@publish_date", book.publish_date);
-                cmd.Parameters.AddWithValue("@popularity", book.popularity);
+                cmd.Parameters.AddWithValue("@rating", book.rating);
                 cmd.Parameters.AddWithValue("@publisher_id", book.publisher_id);
                 try
                 {
@@ -78,7 +78,7 @@ namespace Website.Models.DB
                 }
             }
 
-            if(book.author_id != null)
+            if (book.author_id != null)
             {
                 using MySqlConnection conn = GetConnection();
                 conn.Open();
@@ -106,7 +106,7 @@ namespace Website.Models.DB
                 var cmd = new MySqlCommand(Book.UpdateQuery, conn);
                 cmd.Parameters.AddWithValue("@title", book.title);
                 cmd.Parameters.AddWithValue("@publish_date", book.publish_date);
-                cmd.Parameters.AddWithValue("@popularity", book.popularity);
+                cmd.Parameters.AddWithValue("@rating", book.rating);
                 cmd.Parameters.AddWithValue("@publisher_id", book.publisher_id);
                 cmd.Parameters.AddWithValue("@book_id", book.book_id);
                 try
@@ -171,7 +171,7 @@ namespace Website.Models.DB
             {
                 book_id = Convert.ToUInt32(reader["book_id"]),
                 title = reader["title"].ToString(),
-                popularity = Convert.ToInt32(reader["popularity"]),
+                rating = Convert.ToDecimal(reader["rating"]),
                 publish_date = Convert.ToDateTime(reader["publish_date"]),
                 publisher_id = Convert.ToUInt32(reader["publisher_id"]),
             };
@@ -221,7 +221,7 @@ namespace Website.Models.DB
                 }
             }
 
-            if(result != null)
+            if (result != null)
             {
                 using (MySqlConnection conn = GetConnection())
                 {
@@ -230,7 +230,7 @@ namespace Website.Models.DB
                     bookCmd.Parameters.AddWithValue("@author_id", id);
 
                     using var bookReader = await bookCmd.ExecuteReaderAsync();
-                    if (await bookReader.ReadAsync())
+                    while (await bookReader.ReadAsync())
                     {
                         result.books ??= new();
                         result.books.Add(ToBook(bookReader));
