@@ -1,4 +1,4 @@
-# Queries for series table
+-- Queries for series table
 
 INSERT INTO series (series_id, series_name)
 VALUES (DEFAULT, @series_name);
@@ -14,7 +14,7 @@ SET series_name = @new_series_name
 WHERE series_id = @series_id;
 
 
-# Queries for book_series table
+-- Queries for book_series table
 
 INSERT INTO book_series(book_id, series_id)
 VALUES (@book_id, @series_id);
@@ -27,7 +27,7 @@ WHERE book_id = @series_id;
 
 
 
-# Queries for book_genre table
+-- Queries for book_genre table
 
 INSERT INTO book_genre(book_id, genre_id)
 VALUES (@book_id, @genre_id);
@@ -39,7 +39,7 @@ DELETE FROM book_genre
 WHERE book_id = @book_id;
 
 
-# Queries for genre table
+-- Queries for genre table
 
 INSERT INTO genre (genre_id, genre)
 VALUES (DEFAULT, @genre);
@@ -55,7 +55,7 @@ SET genre = @new_genre_name
 WHERE genre_id = @genre_id;
 
 
-# Queries for account table
+-- Queries for account table
 
 INSERT INTO series (account_id, first_name, last_name, email, password_hash, phone)
 VALUES (DEFAULT, @first_name, @last_name, @email, @password_hash, @phone);
@@ -68,7 +68,7 @@ SET first_name = @first_name, last_name = @last_name, email = @email, password_h
 WHERE account_id = @account_id;
 
 
-# Queries for language table
+-- Queries for language table
 
 INSERT INTO language (language_id, language)
 VALUES (DEFAULT, @language);
@@ -78,7 +78,7 @@ WHERE language = @language_id;
 
 
 
-# Queries for format table
+-- Queries for format table
 
 INSERT INTO language (format_id, format)
 VALUES (DEFAULT, @format);

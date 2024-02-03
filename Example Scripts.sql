@@ -1,4 +1,4 @@
-# account
+-- account
 	-- Delete account
 	DELETE FROM account WHERE account_id = @account_id;
 
@@ -9,7 +9,7 @@
 	UPDATE account SET address_id = @address_id, first_name = @first_name, last_name = @last_name, email = @email, phone = @phone
 	WHERE account_id = @account_id;
 
-# library
+-- library
 	-- Delete library
 	DELETE FROM library WHERE library_id = library_id;
 
@@ -20,7 +20,7 @@
 	UPDATE library SET address_id = @ address_id, name = @name
     WHERE library_id = @library_id;
 
-# library_account
+-- library_account
 	-- Delete library account
     DELETE FROM library_account WHERE library_account_id = @library_account_id;
 
@@ -30,7 +30,8 @@
 	-- Update library account
 	UPDATE library SET account_account_id = @account_account_id WHERE library_account_id = @library_account_id;
 
-# address
+
+-- address
 
 	-- Delete address
     DELETE FROM address WHERE address_id = @address_id;
@@ -42,7 +43,7 @@
     UPDATE address SET address_line = @address_line, state_abbrev = @state_abbrev, zip_code = @zipcode
     WHERE address_id = @address_id;
 
-# state
+-- state
 	-- Delete state
     DELETE FROM state WHERE state_abbrev = @state_abbrev;
 
@@ -53,7 +54,7 @@
 	-- Update state
 	UPDATE state SET name = @name WHERE state_abbrev = @state_abbrev;
     
-# series
+-- series
 	-- Add new series
     INSERT INTO series (series_name)
 	VALUES (@series_name);
@@ -71,7 +72,7 @@
 	SET series_name = @new_series_name
 	WHERE series_id = @series_id;
 
-# book_series
+-- book_series
 	-- Add new book series
 	INSERT INTO book_series(book_id, series_id)
 	VALUES (@book_id, @series_id);
@@ -84,7 +85,7 @@
 	DELETE FROM book_series
 	WHERE book_id = @book_id;
     
-# book_genre
+-- book_genre
 	-- Add new book genre
 	INSERT INTO book_genre(book_id, genre_id)
 	VALUES (@book_id, @genre_id);
@@ -97,7 +98,7 @@
 	DELETE FROM book_genre
 	WHERE book_id = @book_id;
 
-# genre
+-- genre
 	-- Add new genre
 	INSERT INTO genre (genre)
 	VALUES (@genre);
@@ -115,7 +116,7 @@
 	SET genre = @new_genre_name
 	WHERE genre_id = @genre_id;
 
-# account
+-- account
 	-- Add new account
 	INSERT INTO account (first_name, last_name, email, password_hash, phone)
 	VALUES (@first_name, @last_name, @email, @password_hash, @phone);
@@ -129,7 +130,7 @@
 	SET first_name = @first_name, last_name = @last_name, email = @email, password_hash = @password_hash, phone = @phone
 	WHERE account_id = @account_id;
 
-# language
+-- language
 	-- Add new language
 	INSERT INTO language (language)
 	VALUES (@language);
@@ -138,7 +139,7 @@
 	DELETE FROM language
 	WHERE language = @language_id;
 
-# format
+-- format
 	-- Add new format
 	INSERT INTO format (format)
 	VALUES (@format);
@@ -147,7 +148,7 @@
 	DELETE FROM format
 	WHERE format = @format_id;
 
-# book
+-- book
 	-- Select all books and their author
 	SELECT b.*, a.first_name author_first_name, a.last_name author_last_name
 	FROM book b
@@ -163,7 +164,7 @@
     -- Add new book
 	INSERT INTO book(title, publisher_id, popularity, publish_date) VALUES(@title, @publisher_id, @popularity, @publish_date);
 	
-# author
+-- author
 	-- Select all authors and their book count
     SELECT a.*, COUNT(b.author_id) book_count
 	FROM author a
@@ -178,14 +179,14 @@
 	-- Add new author
     INSERT INTO author(first_name, last_name) VALUES(@first_name, @last_name);
         
-# book_author
+-- book_author
 	-- Delete book author
 	DELETE FROM book_author WHERE author_id = @author_id;
     
     -- Add book author
     INSERT INTO book_author VALUES(@book_id, @author_id);
     
-# publisher
+-- publisher
 	-- Select all publishers and their published count
 	SELECT p.*, COUNT(b.publisher_id) book_count
 	FROM publisher p
@@ -194,11 +195,10 @@
         
 	-- Add new publisher
 	INSERT INTO publisher(name) VALUES(@name);
-    
     -- Delete publisher
     DELETE FROM publisher WHERE publisher_id = @publisher_id;
     
-# book_copy
+-- book_copy
 	-- Get all copies of a book
     SELECT copy.*, book.title, author.first_name, author.last_name, library.name, lang.language, cond.condition, format.format
 	FROM book_copy copy
@@ -220,7 +220,7 @@
     UPDATE book_copy SET account_id = @account_id, turn_over = now()
     WHERE item_id = @item_id;
     
-# condition
+-- condition
 	-- Add a condition
     INSERT INTO library.condition(`condition`) VALUES(@condition);
     

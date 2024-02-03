@@ -1,9 +1,9 @@
 
-#Populate Book Table
+-- Populate Book Table
 
 INSERT INTO book(book_id, title, publisher_id, popularity, publish_date) 
 VALUES 
-(DEFAULT, "Tragic Events From Carlos' Life", 2, 4.5, '2002-06-15'),
+(DEFAULT, "Happy Events From Carlos' Life", 2, 4.5, '2002-06-15'),
 (DEFAULT, "The Fellowship of the Ring' Life", 3, 4.8, '1954-07-26'),
 (DEFAULT, "The Two Towers' Life", 3, 4.8, '1954-07-26'),
 (DEFAULT, "The Return of the King", 3, 4.9, '1954-07-26'),
@@ -12,7 +12,7 @@ VALUES
 
 
 
-#Populate Series Table
+-- Populate Series Table
 
 INSERT INTO series (series_id, series_name)
 VALUES 
@@ -21,7 +21,7 @@ VALUES
 (DEFAULT, 'Lord of the Rings');
 
 
-#Populate Genre Table
+-- Populate Genre Table
 
 INSERT INTO series (genre_id, genre)
 VALUES 
@@ -46,7 +46,7 @@ VALUES
 
 
 
-#Populate Account Table
+-- Populate Account Table
 
 INSERT INTO series (account_id, first_name, last_name, email, password_hash, phone)
 VALUES 
@@ -55,7 +55,7 @@ VALUES
 (DEFAULT, 'Aaron', 'Fox', 'aaron.fox@hotmail.com', 'BillieJeanNotMyGirl'),
 (DEFAULT, 'Ashley', 'DeMott', 'ashley.demott@yahoo.com', 'channingtatum');
 
-#Populate Language Table
+-- Populate Language Table
 
 INSERT INTO language (language_id, language)
 VALUES 
@@ -72,7 +72,7 @@ VALUES
 (DEFAULT, 'Dovahzul');
 
 
-# Populate Format Table
+-- Populate Format Table
 
 INSERT INTO format (format_id, format)
 VALUES
@@ -86,7 +86,7 @@ VALUES
 
 
 
-#Populate Book_Series Table
+-- Populate Book_Series Table
 
 INSERT INTO book_series(book_id, series_id)
 VALUES 
@@ -100,7 +100,7 @@ VALUES
 (6, 1);
 
 
-#Populate Book_Genre
+-- Populate Book_Genre
 
 
 INSERT INTO book_genre(book_id, genre_id)

@@ -1,4 +1,4 @@
-# book
+-- book
 	-- Select all books and their author
 	SELECT b.*, a.first_name author_first_name, a.last_name author_last_name
 	FROM book b
@@ -14,7 +14,7 @@
     -- Add new book
 	INSERT INTO book(title, publisher_id, popularity, publish_date) VALUES(@title, @publisher_id, @popularity, @publish_date);
 	
-# author
+-- author
 	-- Select all authors and their book count
     SELECT a.*, COUNT(b.author_id) book_count
 	FROM author a
@@ -29,14 +29,14 @@
 	-- Add new author
     INSERT INTO author(first_name, last_name) VALUES(@first_name, @last_name);
         
-# book_author
+-- book_author
 	-- Delete book author
 	DELETE FROM book_author WHERE author_id = @author_id;
     
     -- Add book author
     INSERT INTO book_author VALUES(@book_id, @author_id);
     
-# publisher
+-- publisher
 	-- Select all publishers and their published count
 	SELECT p.*, COUNT(b.publisher_id) book_count
 	FROM publisher p
@@ -49,7 +49,7 @@
     -- Delete publisher
     DELETE FROM publisher WHERE publisher_id = @publisher_id;
     
-# book_copy
+-- book_copy
 	-- Get all copies of a book
     SELECT copy.*, book.title, author.first_name, author.last_name, library.name, lang.language, cond.condition, format.format
 	FROM book_copy copy
@@ -71,7 +71,7 @@
     UPDATE book_copy SET account_id = @account_id, turn_over = now()
     WHERE item_id = @item_id;
     
-# condition
+-- condition
 	-- Add a condition
     INSERT INTO library.condition(`condition`) VALUES(@condition);
     
