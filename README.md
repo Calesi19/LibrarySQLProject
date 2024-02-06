@@ -1,5 +1,5 @@
 # SQL Library System
-![Title Banner](banner.png)
+![Title Banner](docs/banner.png)
 
 ## About the Project
 This repository contains a collection of SQL scripts designed for managing a Library System. Built using MySQL and MySQL Workbench, this project aims to provide efficient and effective tools for handling various library operations such as book management, user accounts, and transaction tracking.
