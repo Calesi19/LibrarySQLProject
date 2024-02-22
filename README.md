@@ -4,6 +4,8 @@
 ## About the Project
 This repository contains a collection of SQL scripts designed for managing a Library System. Built using MySQL and MySQL Workbench, this project aims to provide efficient and effective tools for handling various library operations such as book management, user accounts, and transaction tracking.
 
+![Schema](docs/schema.png)
+
 ## Features
 * Database Schema: A comprehensive design of tables, relationships, and constraints suitable for a library system.
 * CRUD Operations: Scripts for creating, reading, updating, and deleting records.
